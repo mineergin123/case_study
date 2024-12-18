@@ -1,10 +1,9 @@
-# Base image
 FROM node:16
 
-# Uygulama çalışma dizinini ayarla
+# Çalışma dizinini ayarla
 WORKDIR /app
 
-# Bağımlılık dosyalarını kopyala
+# package.json ve package-lock.json dosyalarını kopyala
 COPY package*.json ./
 
 # Bağımlılıkları yükle
