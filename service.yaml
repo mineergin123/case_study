@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: ornek-uygulama
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: ornek-uygulama
   ports:
     - protocol: TCP
       port: 3000
       targetPort: 3000
-      nodePort: 30001 # İsteğe bağlı, Kubernetes otomatik olarak bir port atayabilir
