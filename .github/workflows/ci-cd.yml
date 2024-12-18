@@ -27,25 +27,25 @@ jobs:
         run: docker build -t ornek-uygulama:latest .
 
   deploy:
-  runs-on: ubuntu-latest
-  needs: build
-  steps:
-    - name: Check out code
-      uses: actions/checkout@v2
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'v1.27.0'
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'v1.27.0'
 
-    - name: Create .kube directory
-      run: mkdir -p ~/.kube
+      - name: Create .kube directory
+        run: mkdir -p ~/.kube
 
-    - name: Configure kubeconfig
-      run: |
-        echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+      - name: Configure kubeconfig
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
 
-    - name: Deploy to Kubernetes
-      run: |
-        kubectl apply -f deployment.yaml
-        kubectl apply -f service.yaml
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f deployment.yaml
+          kubectl apply -f service.yaml
