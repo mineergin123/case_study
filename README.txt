@@ -1,7 +1,7 @@
 CI/CD AND KUBERNETES
-This project demonstrates a basic CI/CD pipeline and deployment using Kubernetes. 
-I implemented a sample application and containerized it with Docker, then deployed it on Kubernetes using Helm Charts. 
-Along the way, I encountered and resolved several issues, which I’ve documented here.
+This project shows a simple Kubernetes deployment and CI/CD pipeline. 
+I used Helm Charts to deploy a sample application on Kubernetes after containerizing it with Docker.
+Along the way, I encountered several issues, which I’ve documented here.
 
 OVERVIEW
 -Containerizing the application using Docker.
@@ -43,6 +43,7 @@ DNS Lookup:
 nslookup ornek-uygulama.local
 
 CONCLUSION
-This project was a learning experience in setting up CI/CD pipelines and working with Kubernetes. While I faced challenges like debugging DNS issues and configuring Helm Charts, I was able to resolve them and deploy the application successfully.
+This project was a learning experience in setting up CI/CD pipelines and working with Kubernetes. 
+I faced some challenges like debugging DNS issues and configuring Helm Charts.
 
 GITHUB LINK: https://github.com/mineergin123/case_study
