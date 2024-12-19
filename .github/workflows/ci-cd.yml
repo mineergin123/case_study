@@ -36,10 +36,17 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Set up kubectl
-        run: |
-          echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Create .kube directory
+        run: mkdir -p ~/.kube
+
+      - name: Configure kubeconfig
+        run: echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
+
       - name: Apply Kubernetes manifests
         run: |
           kubectl apply -f deployment.yaml
           kubectl apply -f service.yaml
+
