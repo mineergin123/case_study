@@ -6,6 +6,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.listen(port, () => {
-  console.log(`Uygulama http://localhost:${port} adresinde çalışıyor`);
-});
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Uygulama http://localhost:${port} adresinde çalışıyor`);
+  });
+}
+
+module.exports = app;
