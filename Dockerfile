@@ -1,19 +1,10 @@
-FROM node:16
-
-# Çalışma dizinini ayarla
+FROM node:16 AS builder
 WORKDIR /app
-
-# package.json ve package-lock.json dosyalarını kopyala
 COPY package*.json ./
-
-# Bağımlılıkları yükle
 RUN npm install
-
-# Uygulama dosyalarını kopyala
 COPY . .
 
-# Uygulamayı başlat
+FROM node:16
+WORKDIR /app
+COPY --from=builder /app .
 CMD ["npm", "start"]
-
-# Port aç
-EXPOSE 3000

@@ -15,4 +15,4 @@ spec:
           service:
             name: ornek-uygulama
             port:
-              number: 3000  # Burada port numarasının 3000 olduğundan emin olun
+              number: 3000

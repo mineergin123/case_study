@@ -16,18 +16,9 @@ spec:
     spec:
       containers:
       - name: ornek-uygulama
-        image: ornek-uygulama:latest
-        imagePullPolicy: Never
+        image: mineergin/ornek-uygulama:latest # Docker Hub imaj adı ve tag
+        imagePullPolicy: Always
         ports:
         - containerPort: 3000
-        env:
-        - name: DATABASE_HOST
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: database_host
-        - name: DATABASE_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: database_password
+      imagePullSecrets:
+      - name: dockerhub-secret
