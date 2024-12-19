@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: ornek-uygulama
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: ornek-uygulama
   ports:
